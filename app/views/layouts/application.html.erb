@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <% if flash %>
+      <% flash.each do |name, message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
