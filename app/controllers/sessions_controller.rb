@@ -9,6 +9,13 @@ class SessionsController < ApplicationController
       flash[:success]   = "Login successful!"
       redirect_to user_path(@user)
     else
+      if @user
+        @errors = @user.errors.full_messages
+        flash.now[:error] = "Incorrect password. Try again."
+      else
+        flash.now[:error] = "Unknown email. Try again."
+      end
+      render :new
     end
   end
 end
