@@ -1,12 +1,3 @@
-=begin 
-As a visitor
-when I visit the new user page
-If I fill in my information
-and click "Create Account"
-I see a welcome message
-and I am a user in the databse
-=end
-
 require 'rails_helper'
 
 RSpec.feature "Visit can create an account" do
