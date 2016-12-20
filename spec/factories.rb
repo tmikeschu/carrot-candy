@@ -17,5 +17,9 @@ FactoryGirl.define do
     sequence :password do
       Faker::Internet.password(10, 50)
     end
+
+    points 0
+
+    redeemed_points 0
   end
 end
