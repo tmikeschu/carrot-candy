@@ -3,5 +3,5 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, length: {in: 10..50}
 end
