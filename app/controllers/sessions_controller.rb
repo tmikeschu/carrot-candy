@@ -18,4 +18,10 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    reset_session
+    flash[:success] = "Logout successful!"
+    redirect_to login_path
+  end
 end
