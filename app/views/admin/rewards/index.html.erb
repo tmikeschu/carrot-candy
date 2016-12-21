@@ -1,7 +1,11 @@
 <ul>
-  <% @rewards.each do |reward| %>
-    <li>
+  <% alphabetize_rewards(@rewards).each do |reward| %>
+    <li id="<%= reward.name.downcase.split(" ").join %>">
       <%= link_to reward.name, admin_reward_path(reward) %>
+      <ul>
+        <li><%= reward.quantity %></li>
+        <li><%= reward.point_value %></li>
+      </ul>
       <%= link_to 'Edit Reward', edit_admin_reward_path(reward) %>
     </li>
   <% end %>
