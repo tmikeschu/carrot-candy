@@ -1,0 +1,13 @@
+<%= @reward.name %>
+<ul>
+  <li><%= @reward.quantity %></li>
+  <li><%= @reward.point_value %></li>
+</ul>
+<% if current_admin? %>
+  <%= link_to 'Edit', edit_admin_reward_path(@reward) %>
+  <%= link_to 'Delete', admin_reward_path(@reward), method: :delete %>
+  <%= link_to 'Back to Rewards', admin_rewards_path %>
+<% else %>
+  <%= link_to 'Buy', "/buy/#{@reward.id}" %>
+  <%= link_to 'Back to Rewards', rewards_path %>
+<% end %>
