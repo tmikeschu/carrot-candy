@@ -1,13 +1,3 @@
-=begin 
-As a user
-when I log in
-and click All Rewards
-I can see a list of all the Rewards
-
-as an Admin, I can see edit and delete links
-as a User, I cannot see those links, but I can see a buy links
-=end
-
 require 'rails_helper'
 
 RSpec.feature "User sees all rewards" do
@@ -31,6 +21,7 @@ RSpec.feature "User sees all rewards" do
         expect(page).to have_link "Edit", href: edit_admin_reward_path(@reward)
         expect(page).to have_link "Delete", href: admin_reward_path(@reward)
         expect(page).to have_link @reward.name, href: admin_reward_path(@reward)
+        expect(page).to_not have_link "Buy", href: "/buy/#{@reward.id}"
       end
     end
   end
@@ -48,6 +39,7 @@ RSpec.feature "User sees all rewards" do
         expect(page).to_not have_link "Edit", href: edit_admin_reward_path(@reward)
         expect(page).to_not have_link "Delete", href: admin_reward_path(@reward)
         expect(page).to have_link @reward.name, href: admin_reward_path(@reward)
+        expect(page).to have_link "Buy", href: "/buy/#{@reward.id}"
       end
     end
 
