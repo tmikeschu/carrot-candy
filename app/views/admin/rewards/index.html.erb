@@ -6,7 +6,9 @@
         <li><%= reward.quantity %></li>
         <li><%= reward.point_value %></li>
       </ul>
-      <%= link_to 'Edit Reward', edit_admin_reward_path(reward) %>
+      <% if current_admin? %>
+        <%= link_to 'Edit Reward', edit_admin_reward_path(reward) %>
+      <% end %>
     </li>
   <% end %>
 </ul>
