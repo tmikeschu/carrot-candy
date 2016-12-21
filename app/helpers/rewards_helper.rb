@@ -7,4 +7,8 @@ module RewardsHelper
   def alphabetize_rewards(rewards)
     rewards.sort_by { |reward| reward.name }
   end
+
+  def downcase_join_name(name)
+    name.downcase.split(" ").join
+  end
 end
