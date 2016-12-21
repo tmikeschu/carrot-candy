@@ -1,6 +1,6 @@
 class Admin::RewardsController < Admin::BaseController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :index]
-  before_action :set_reward, only: [:edit, :update]
+  before_action :require_admin
+  before_action :set_reward, only: [:edit, :update, :show]
   
   def new
     @reward = Reward.new
@@ -20,6 +20,9 @@ class Admin::RewardsController < Admin::BaseController
 
   def index
     @rewards = Reward.all
+  end
+
+  def show
   end
 
   def edit
