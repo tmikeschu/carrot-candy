@@ -12,7 +12,8 @@ require 'rails_helper'
 RSpec.feature "Admin creates a reward" do
   before do
     @reward = create(:reward)
-    @admin = create(:user, role: 1)
+    @admin  = create(:user, role: 1)
+    @user   = create(:user)
     visit login_path
     fill_in "email", with: @admin.email
     fill_in "password", with: @admin.password
@@ -56,6 +57,21 @@ RSpec.feature "Admin creates a reward" do
       click_on "Add Reward"
       expect(page).to have_content "Whoops!"
       expect(page).to have_content "Name has already been taken"
+    end
+  end
+
+  context "when the user is not an admin" do
+    scenario "they cannot see an add reward link" do
+      click_on "Log out"
+      fill_in "email", with: @user.email
+      fill_in "password", with: @user.password
+      within "form" do
+        click_on "Log in"
+      end
+      expect(page).to_not have_link "Add Reward", href: new_reward_path
+    end
+
+    xscenario "and they cannot use the create reward path" do
     end
   end
 end
