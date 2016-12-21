@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Registered user can logt out" do
+RSpec.feature "Registered user can log out" do
   before do
     @user = create(:user, password: "password123")
   end
