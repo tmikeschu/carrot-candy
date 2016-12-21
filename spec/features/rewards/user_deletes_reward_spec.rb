@@ -1,7 +1,3 @@
-=begin 
-As an admin
-I can delete a reward
-=end
 require 'rails_helper'
 
 RSpec.feature "User deletes a reward" do
