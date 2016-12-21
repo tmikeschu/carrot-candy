@@ -1,5 +1,5 @@
 class Admin::RewardsController < Admin::BaseController
-  before_action :require_admin, only: [:new, :create, :edit, :update]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :index]
   before_action :set_reward, only: [:edit, :update]
   
   def new
