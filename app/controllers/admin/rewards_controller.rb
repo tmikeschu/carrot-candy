@@ -1,4 +1,6 @@
 class Admin::RewardsController < Admin::BaseController
+  before_action :require_admin, only: [:new, :create]
+  
   def new
     @reward = Reward.new
   end
