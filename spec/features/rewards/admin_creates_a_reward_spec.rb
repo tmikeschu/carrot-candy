@@ -1,12 +1,3 @@
-=begin 
-As an admin
-If I go to the new reward page
-and enter its information
-and click "Add Reward"
-I am taken to the rewards page
-and that reward shows up
-=end
-
 require 'rails_helper'
 
 RSpec.feature "Admin creates a reward" do
