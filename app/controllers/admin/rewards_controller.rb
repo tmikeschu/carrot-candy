@@ -1,6 +1,6 @@
 class Admin::RewardsController < Admin::BaseController
   before_action :require_admin
-  before_action :set_reward, only: [:edit, :update, :show]
+  before_action :set_reward, only: [:edit, :update, :show, :destroy]
   
   def new
     @reward = Reward.new
@@ -37,6 +37,11 @@ class Admin::RewardsController < Admin::BaseController
       @errors = @reward.errors.full_messages
       render :edit
     end
+  end
+
+  def destroy
+    @reward.destroy
+    redirect_to admin_rewards_path
   end
 
   private 

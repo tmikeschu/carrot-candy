@@ -24,8 +24,23 @@ RSpec.feature "User deletes a reward" do
         click_on "Delete"
       end
       expect(current_path).to eq admin_rewards_path
-      expect(page).to_not have @reward.name
-      expect(page).to_not have_selector("li##{downcase_join_name(@reward.name)}")
+      expect(page).to_not have_content @reward.name
+      expect(page).to_not have_selector("li##{@reward.name.downcase.split(" ").join}")
+    end
+  end
+
+  describe "as a user" do
+    before do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      allow_any_instance_of(ApplicationController).to receive(:current_admin?).and_return(false)
+    end
+
+    context "when a user tries to override with a delete request" do
+      scenario "they receive an error" do
+        page.driver.submit :delete, admin_reward_path(@reward), {}
+        expect(page).to have_content "The page you were looking for doesn't exist (404)"
+        expect(User.find(@user.id)).to be_truthy
+      end
     end
   end
 end
