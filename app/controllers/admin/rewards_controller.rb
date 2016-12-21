@@ -8,8 +8,9 @@ class Admin::RewardsController < Admin::BaseController
 
   def create
     @reward = Reward.new(reward_params)
+    '#{}' "#{}" 
     if @reward.save
-      flash[:succes] = "#{@reward.name} added!"
+      flash[:success] = "#{@reward.name} added!"
       redirect_to admin_rewards_path
     else
       flash[:error] = "Whoops!"
