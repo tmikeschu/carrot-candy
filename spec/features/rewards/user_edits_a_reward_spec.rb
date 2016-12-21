@@ -21,7 +21,7 @@ RSpec.feature "Admin edits a reward" do
     scenario "they can update a rewards information" do
       within "li##{@rewards.first.name.downcase.split(" ").join}" do
         expect(page).to_not have_content "iPod"
-        click_on "Edit Reward"
+        click_on "Edit"
       end
       fill_in "reward_name", with: "iPod"  
       fill_in "reward_quantity", with: 5
@@ -40,7 +40,7 @@ RSpec.feature "Admin edits a reward" do
       scenario "they see an error" do
         within "li##{@rewards.first.name.downcase.split(" ").join}" do
           expect(page).to_not have_content "iPod"
-          click_on "Edit Reward"
+          click_on "Edit"
         end
         fill_in "reward_name", with: ""  
         fill_in "reward_quantity", with: nil 
@@ -65,7 +65,7 @@ RSpec.feature "Admin edits a reward" do
 
       scenario "they cannot see an edit link on the index page" do
         visit rewards_path
-        expect(page).to_not have_content "Edit Reward"
+        expect(page).to_not have_content "Edit"
       end
 
       scenario "they cannot override with the url" do
