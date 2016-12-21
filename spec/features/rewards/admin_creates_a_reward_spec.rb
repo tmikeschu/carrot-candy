@@ -32,8 +32,17 @@ RSpec.feature "Admin creates a reward" do
     expect(page).to have_link @reward.name, href: reward_path(@reward)    
   end
 
-  xcontext "when they forget information" do
+  context "when they forget information" do
     scenario "they receive an error" do
+      click_on "Add Reward"
+      fill_in "reward_name", with: ""  
+      fill_in "reward_quantity", with: nil 
+      fill_in "reward_point_value", with: nil 
+      click_on "Add Reward"
+      expect(page).to have_content "Whoops!"
+      expect(page).to have_content "Name can't be blank" 
+      expect(page).to have_content "Quantity can't be blank" 
+      expect(page).to have_content "Point value can't be blank" 
     end
   end
 
