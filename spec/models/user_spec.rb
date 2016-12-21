@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
     it {should validate_length_of(:password).is_at_least(10).is_at_most(50)}
   end
 
-  describe 'A user role' do
+  describe 'roles' do
     it "can be created as admin" do
       user = create(:user, role: 1)
       expect(user.role).to eq "admin"
