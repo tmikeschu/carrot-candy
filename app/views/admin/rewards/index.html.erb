@@ -1,3 +1,8 @@
-<% @rewards.each do |reward| %>
-  <%= link_to reward.name, admin_reward_path(reward) %>
-<% end %>
+<ul>
+  <% @rewards.each do |reward| %>
+    <li>
+      <%= link_to reward.name, admin_reward_path(reward) %>
+      <%= link_to 'Edit Reward', edit_admin_reward_path(reward) %>
+    </li>
+  <% end %>
+</ul>
