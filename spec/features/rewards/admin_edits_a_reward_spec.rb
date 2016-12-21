@@ -24,7 +24,8 @@ RSpec.feature "Admin edits a reward" do
   end
 
   scenario "they can update a rewards information" do
-    within "li:nth-child(1)" do
+    # byebug
+    within "li##{@rewards.first.name.downcase.split(" ").join}" do
       expect(page).to_not have_content "iPod"
       click_on "Edit Reward"
     end
@@ -32,7 +33,9 @@ RSpec.feature "Admin edits a reward" do
     fill_in "reward_quantity", with: 5
     fill_in "reward_point_value", with: 20
     click_on "Update Reward"
-    within "li:nth-child(2)" do 
+    expect(page).to have_content "Update successful!"
+    expect(page).to_not have_content @rewards.first.name
+    within "li#iPod" do
       expect(page).to have_content "iPod"
       expect(page).to have_content 5
       expect(page).to have_content 20
