@@ -70,7 +70,8 @@ RSpec.feature "Admin edits a reward" do
       end
     end
 
-    scenario "they cannot see an edit link" do
+    scenario "they cannot see an edit link on the index page" do
+      visit rewards_path
       expect(page).to_not have_content "Edit Reward"
     end
 
