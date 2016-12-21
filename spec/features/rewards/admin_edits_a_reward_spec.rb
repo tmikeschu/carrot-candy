@@ -1,12 +1,3 @@
-=begin 
-As an admin
-when I visit the rewards index
-and I click "Edit" on one of the rewards
-and I update its information
-and I click Update rewards
-then I am taken back to the index
-and the information is updated
-=end
 require 'rails_helper'
 
 RSpec.feature "Admin edits a reward" do
