@@ -11,6 +11,7 @@ require 'rails_helper'
 
 RSpec.feature "Admin creates a reward" do
   before do
+    @reward = create(:reward)
     @admin = create(:user, role: 1)
     visit login_path
     fill_in "email", with: @admin.email
@@ -46,8 +47,15 @@ RSpec.feature "Admin creates a reward" do
     end
   end
 
-  xcontext "when they enter a duplicate name" do
+  context "when they enter a duplicate name" do
     scenario "they recevie an error" do
+      click_on "Add Reward"
+      fill_in "reward_name", with: @reward.name  
+      fill_in "reward_quantity", with: 10
+      fill_in "reward_point_value", with: 15 
+      click_on "Add Reward"
+      expect(page).to have_content "Whoops!"
+      expect(page).to have_content "Name has already been taken"
     end
   end
 end

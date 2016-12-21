@@ -9,6 +9,9 @@ class RewardsController < ApplicationController
       flash[:succes] = "#{@reward.name} added!"
       redirect_to rewards_path
     else
+      flash[:error] = "Whoops!"
+      @errors = @reward.errors.full_messages
+      render :new
     end
   end
 

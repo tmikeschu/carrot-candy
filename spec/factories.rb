@@ -22,4 +22,18 @@ FactoryGirl.define do
 
     redeemed_points 0
   end
+
+  factory :reward do
+    sequence :name do |n|
+      "#{Faker::Commerce.product_name} #{n}"
+    end
+
+    sequence :quantity do
+      rand(20) + 1
+    end
+
+    sequence :point_value do
+      rand(500) + 1
+    end
+  end
 end
