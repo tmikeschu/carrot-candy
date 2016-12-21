@@ -1,5 +1,5 @@
 class Admin::RewardsController < Admin::BaseController
-  before_action :require_admin, only: [:new, :create]
+  before_action :require_admin, only: [:new, :create, :edit, :update]
   before_action :set_reward, only: [:edit, :update]
   
   def new
@@ -30,6 +30,9 @@ class Admin::RewardsController < Admin::BaseController
       flash[:success] = "Update successful!"
       redirect_to admin_rewards_path
     else
+      flash[:error] = "Whoops!"
+      @errors = @reward.errors.full_messages
+      render :edit
     end
   end
 
