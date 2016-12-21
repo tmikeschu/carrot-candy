@@ -21,6 +21,9 @@ class Admin::RewardsController < Admin::BaseController
     @rewards = Reward.all
   end
 
+  def edit
+  end
+  
   private 
   def reward_params
     params.require(:reward).permit(:name, :quantity, :point_value)
