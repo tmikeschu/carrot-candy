@@ -1,5 +1,6 @@
 class Admin::RewardsController < Admin::BaseController
   before_action :require_admin, only: [:new, :create]
+  before_action :set_reward, only: [:edit, :update]
   
   def new
     @reward = Reward.new
@@ -23,9 +24,21 @@ class Admin::RewardsController < Admin::BaseController
 
   def edit
   end
-  
+
+  def update
+    if @reward.update(reward_params)
+      flash[:success] = "Update successful!"
+      redirect_to admin_rewards_path
+    else
+    end
+  end
+
   private 
   def reward_params
     params.require(:reward).permit(:name, :quantity, :point_value)
+  end
+
+  def set_reward
+    @reward = Reward.find(params[:id])
   end
 end
