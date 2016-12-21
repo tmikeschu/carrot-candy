@@ -30,8 +30,8 @@ RSpec.feature "Admin creates a reward" do
     fill_in "reward_point_value", with: 20
     click_on "Add Reward"
     @reward = Reward.first
-    expect(current_path).to eq rewards_path
-    expect(page).to have_link @reward.name, href: reward_path(@reward)    
+    expect(current_path).to eq admin_rewards_path
+    expect(page).to have_link @reward.name, href: admin_reward_path(@reward)    
   end
 
   context "when they forget information" do
@@ -68,10 +68,18 @@ RSpec.feature "Admin creates a reward" do
       within "form" do
         click_on "Log in"
       end
-      expect(page).to_not have_link "Add Reward", href: new_reward_path
+      expect(page).to_not have_link "Add Reward", href: new_admin_reward_path
     end
 
-    xscenario "and they cannot use the create reward path" do
+    scenario "and they cannot use the create reward path" do
+      click_on "Log out"
+      fill_in "email", with: @user.email
+      fill_in "password", with: @user.password
+      within "form" do
+        click_on "Log in"
+      end
+      visit new_admin_reward_path
+      expect(page).to have_content "The page you were looking for doesn't exist."
     end
   end
 end
