@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {in: 10..50}
 
   enum role: %w(default admin)
+
+  has_many :users_rewards
+  has_many :rewards, through: :users_rewards
 end
