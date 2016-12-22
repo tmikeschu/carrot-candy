@@ -1,13 +1,3 @@
-=begin 
-As an admin
-when I visit the users index page
-and click a user
-and fill in a point value to add
-and click Add Points
-then I return to the index
-and their point value is updated
-=end
-
 require 'rails_helper'
 
 RSpec.feature "User assigns points to user" do
@@ -39,6 +29,26 @@ RSpec.feature "User assigns points to user" do
       expect(@user.points).to eq 50
       expect(page).to have_content "50 points added for #{@user.name}"
     end
+
+    context "when they try to add negative points" do
+      scenario "they are brought back to the user show page with an error showing" do
+        @user.points = 50
+        @user.save
+        expect(@user.points).to eq 50
+        visit admin_users_path
+        click_on @user.name
+        click_on "Add Points"
+
+        expect(current_path).to eq edit_admin_user_path(@user)
+        fill_in "user_points", with: -50
+        click_on "Update Points"
+
+        expect(current_path).to eq admin_user_path(@user)
+        expect(page).to have_content "Whoops! Can't add negative points. If you want to remove points, click 'Remove Points'"
+        @user.reload
+        expect(@user.points).to eq 50
+      end
+    end
   end
 
   describe "as a user" do
@@ -48,6 +58,18 @@ RSpec.feature "User assigns points to user" do
     end
 
     scenario "they cannot assign points to a user" do
+      visit edit_admin_user_path(@user)
+      expect(page).to have_content "The page you were looking for doesn't exist (404)"
+    end
+
+    scenario "they do not see an add points link on their page" do
+      visit user_path(@user)
+      expect(page).to_not have_link "Add Points", edit_admin_user_path(@user)
+    end
+
+    scenario "they do not have access to the admin user show page" do
+      visit admin_user_path(@user)
+      expect(page).to have_content "The page you were looking for doesn't exist (404)"
     end
   end
 end
