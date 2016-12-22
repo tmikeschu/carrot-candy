@@ -10,11 +10,9 @@ RSpec.feature "User creates a reward" do
     
   describe "as an admin" do
     before do
-      fill_in "email", with: @admin.email
-      fill_in "password", with: @admin.password
-      within "form" do
-        click_on "Log in"
-      end
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_admin?).and_return(true)
+      visit user_path(@admin)
     end
       
     scenario "they create a reward" do
