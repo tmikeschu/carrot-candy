@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  before_action :verify_user, only: [:show]
+
   def new
     @user = User.new 
   end
@@ -43,5 +46,13 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)
+    end
+
+    def require_login
+      render file: 'public/404' unless current_user
+    end
+    
+    def verify_user
+      render file: 'public/404' unless current_user.id == params[:id]
     end
 end
