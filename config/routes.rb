@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :rewards, only: [:index, :show]
   get 'buy/:id', to: "users#buy"
+  post 'buy/:id', to: "users#add_reward"
 
   get     '/login', to: "sessions#new"
   post    '/login', to: "sessions#create"
