@@ -29,7 +29,7 @@ class Admin::UsersController < Admin::BaseController
   def update
     @user.points += point_params[:points].to_i
     @user.save
-    flash[:success] = "#{point_params[:points]} points added to #{@user.name}"
+    flash[:success] = "#{point_params[:points]} points added for #{@user.name}"
     redirect_to admin_users_path
   end
 

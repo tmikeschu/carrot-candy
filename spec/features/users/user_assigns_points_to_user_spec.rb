@@ -37,6 +37,7 @@ RSpec.feature "User assigns points to user" do
       @user.reload
       expect(current_path).to eq admin_users_path
       expect(@user.points).to eq 50
+      expect(page).to have_content "50 points added for #{@user.name}"
     end
   end
 
