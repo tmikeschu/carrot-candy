@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     resources :rewards, except: [:patch]
   end
 
-  get 'admin/users/:id/remove-points', to: "admin/users#remove_points"
-  post 'admin/users/:id/remove-points', to: "admin/users#destroy_points"
-
   resources :rewards, only: [:index, :show]
   get 'buy/:id', to: "users#buy"
   post 'buy/:id', to: "users#add_reward"
