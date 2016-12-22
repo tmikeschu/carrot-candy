@@ -27,10 +27,15 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user.points += point_params[:points].to_i
-    @user.save
-    flash[:success] = "#{point_params[:points]} points added for #{@user.name}"
-    redirect_to admin_users_path
+    if point_params[:points].to_i < 0
+      flash[:error] = "Whoops! Can't add negative points. If you want to remove points, click 'Remove Points'"
+      redirect_to admin_user_path(@user)
+    else
+      @user.points += point_params[:points].to_i
+      @user.save
+      flash[:success] = "#{point_params[:points]} points added for #{@user.name}"
+      redirect_to admin_users_path
+    end
   end
 
   private
