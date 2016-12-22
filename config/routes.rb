@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :show]  
+  resources :users, only: [:show]  
   
   namespace :admin do
+    resources :users, only: [:new, :create, :index]  
     resources :rewards, except: [:patch]
   end
 
