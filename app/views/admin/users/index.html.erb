@@ -1,8 +1,0 @@
-<% @users.each do |user| %>
-  <h2><%= link_to full_name(user), admin_user_path(user) %></h2>
-  <ul>
-    <li>Email: <%= user.email %></li>
-    <li>Points: <%= user.points %></li>
-    <li>Redeemed Points: <%= user.redeemed_points %></li>
-  </ul>
-<% end %>

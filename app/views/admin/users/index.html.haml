@@ -1,0 +1,13 @@
+- @users.each do |user|
+  %h2
+    = link_to full_name(user), admin_user_path(user)
+  %ul
+    %li
+      Email:
+      = user.email
+      %br
+      Points:
+      = user.points
+      %br
+      Redeemed Points:
+      = user.redeemed_points
