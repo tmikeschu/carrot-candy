@@ -23,4 +23,9 @@ RSpec.describe User, type: :model do
       expect(user.default?).to be_truthy
     end
   end
+
+  describe "associations" do
+    it {should have_many(:users_rewards)}
+    it {should have_many(:rewards).through(:users_rewards)}
+  end
 end
