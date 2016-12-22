@@ -61,4 +61,14 @@ RSpec.feature "Admin creates a user" do
       expect(page).to have_content "Password is too short (minimum is 10 characters)"
     end
   end
+
+  context "when a user tries to create an account" do
+    scenario "they are unable" do
+      @user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      allow_any_instance_of(ApplicationController).to receive(:current_admin?).and_return(false)
+      visit new_admin_user_path
+      expect(page).to have_content "The page you were looking for doesn't exist (404)"
+    end
+  end
 end
