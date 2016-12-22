@@ -1,0 +1,4 @@
+<h2>Your point total: <%= current_user.points %></h2>
+<h2>Cost of <%= @reward.name %>: <%= @reward.point_value %></h2>
+<h2>Number of these left: <%= @reward.quantity %></h2>
+<%= link_to 'Confirm Purchase', "/buy/#{@reward.id}", method: :post %>
