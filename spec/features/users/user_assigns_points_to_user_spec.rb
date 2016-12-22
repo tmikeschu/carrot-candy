@@ -25,6 +25,18 @@ RSpec.feature "User assigns points to user" do
     end
 
     scenario "they assign points to a default user" do
+      expect(@user.points).to eq 0
+      visit admin_users_path
+      click_on @user.name
+      click_on "Add Points"
+
+      expect(current_path).to eq edit_admin_user_path(@user)
+      fill_in "user_points", with: 50
+      click_on "Update Points"
+      
+      @user.reload
+      expect(current_path).to eq admin_users_path
+      expect(@user.points).to eq 50
     end
   end
 
