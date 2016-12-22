@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :rewards, through: :users_rewards
 
   def name
-    self.first_name + " " + self.last_name
+    first_name + " " + last_name
+  end
+
+  def total_points
+    points + redeemed_points
   end
 end
