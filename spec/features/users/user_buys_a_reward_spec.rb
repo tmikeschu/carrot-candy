@@ -1,12 +1,3 @@
-=begin 
-As a user
-when I visit a reward index
-  or a show page
-i can click "buy"
-and go to a buy page
-
-=end
-
 require 'rails_helper'
 
 RSpec.feature "User buys a reward" do
