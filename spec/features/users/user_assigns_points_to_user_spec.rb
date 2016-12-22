@@ -29,26 +29,6 @@ RSpec.feature "User assigns points to user" do
       expect(@user.points).to eq 50
       expect(page).to have_content "50 points added for #{@user.name}"
     end
-
-    context "when they try to add negative points" do
-      scenario "they are brought back to the user show page with an error showing" do
-        @user.points = 50
-        @user.save
-        expect(@user.points).to eq 50
-        visit admin_users_path
-        click_on @user.name
-        click_on "Add or Remove Points"
-
-        expect(current_path).to eq edit_admin_user_path(@user)
-        fill_in "user_points", with: -50
-        click_on "Update Points"
-
-        expect(current_path).to eq admin_user_path(@user)
-        expect(page).to have_content "Whoops! Can't add negative points. If you want to remove points, click 'Remove Points'"
-        @user.reload
-        expect(@user.points).to eq 50
-      end
-    end
   end
 
   describe "as a user" do
