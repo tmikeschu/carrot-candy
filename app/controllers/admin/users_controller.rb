@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :remove_points]
   def new
     @user = User.new 
   end
@@ -21,6 +21,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
+  end
+
+  def remove_points
   end
 
   def show

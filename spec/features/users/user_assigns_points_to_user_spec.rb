@@ -18,7 +18,7 @@ RSpec.feature "User assigns points to user" do
       expect(@user.points).to eq 0
       visit admin_users_path
       click_on @user.name
-      click_on "Add Points"
+      click_on "Add or Remove Points"
 
       expect(current_path).to eq edit_admin_user_path(@user)
       fill_in "user_points", with: 50
@@ -37,7 +37,7 @@ RSpec.feature "User assigns points to user" do
         expect(@user.points).to eq 50
         visit admin_users_path
         click_on @user.name
-        click_on "Add Points"
+        click_on "Add or Remove Points"
 
         expect(current_path).to eq edit_admin_user_path(@user)
         fill_in "user_points", with: -50
