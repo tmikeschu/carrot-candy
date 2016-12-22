@@ -25,7 +25,6 @@ FactoryGirl.define do
     factory :user_with_rewards do
       after(:create) do |user|
         user.rewards = create_list(:reward, 10)
-        user.redeemed_points = user.rewards.sum(:point_value)
       end
     end
   end
