@@ -2,12 +2,6 @@
   %h2
     = link_to full_name(user), admin_user_path(user)
   %ul
-    %li
-      Email:
-      = user.email
-      %br
-      Points:
-      = user.points
-      %br
-      Redeemed Points:
-      = user.redeemed_points
+    %li Email: #{user.email}
+    %li Points: #{user.points}
+    %li Redeemed Points: #{user.redeemed_points}

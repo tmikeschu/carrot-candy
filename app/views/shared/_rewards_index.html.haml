@@ -1,0 +1,12 @@
+%ul
+  - alphabetize_rewards(@rewards).each do |reward|
+    %li{:id => "#{downcase_join_name(reward.name)}"}
+      = link_to reward.name, admin_reward_path(reward)
+      %ul
+        %li= reward.quantity
+        %li= reward.point_value
+      - if current_admin?
+        = link_to 'Edit', edit_admin_reward_path(reward)
+        = link_to 'Delete', admin_reward_path(reward), method: :delete
+      - else
+        = link_to 'Buy', "/buy/#{reward.id}"

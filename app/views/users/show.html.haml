@@ -1,0 +1,7 @@
+%h1
+  Welcome, #{@user.first_name}!
+- if current_admin?
+  = link_to 'Add Reward', new_admin_reward_path
+- else
+  - @user.rewards.each do |reward|
+    = reward.name
