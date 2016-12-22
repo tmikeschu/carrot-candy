@@ -1,5 +1,9 @@
 <h1>Welcome, <%= @user.first_name %>!</h1>
 
-<% if current_user && current_user.admin? %>
+<% if current_admin? %>
   <%= link_to 'Add Reward', new_admin_reward_path %>
+<% else %>
+  <% @user.rewards.each do |reward| %>
+    <%= reward.name %>
+  <% end %>
 <% end %>
