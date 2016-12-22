@@ -24,4 +24,9 @@ RSpec.describe Reward, type: :model do
       expect(@user.redeemed_points).to eq 0
     end
   end
+
+  describe "associations" do
+    it {should have_many(:users_rewards)}
+    it {should have_many(:users).through(:users_rewards)}
+  end
 end
