@@ -28,14 +28,10 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     points = point_params[:points].to_i 
-    if point_params[:points].to_i < 0
-      @user.points -= points
-      flash[:success] = "#{points} points removed from #{@user.name}"
-    else
-      @user.points += points
-      flash[:success] = "#{point_params[:points]} points added for #{@user.name}"
-      @user.save
-    end
+    @user.points += points
+    @user.save!
+    flash[:success] = "#{point_params[:points]} points added for #{@user.name}"
+    flash[:success] = "#{points} points removed from #{@user.name}" if points < 0
     redirect_to admin_users_path
   end
 
