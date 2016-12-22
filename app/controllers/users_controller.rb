@@ -37,7 +37,6 @@ class UsersController < ApplicationController
     @reward.quantity - 1
     @reward.save
     current_user.points -= @reward.point_value
-    current_user.redeemed_points += @reward.point_value
     current_user.save 
     redirect_to user_path(current_user)
   end

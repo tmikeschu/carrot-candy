@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def total_points
     points + redeemed_points
   end
+
+  def redeemed_points
+    rewards.sum(:point_value)
+  end
 end
