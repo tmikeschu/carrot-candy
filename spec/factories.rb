@@ -41,5 +41,9 @@ FactoryGirl.define do
     sequence :point_value do
       rand(500) + 1
     end
+
+    sequence :image_url do
+      Faker::Avatar.image
+    end
   end
 end
