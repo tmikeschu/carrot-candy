@@ -32,9 +32,14 @@ body {
 
 header {
   font-family: Raleway, Helvetica, sans-serif;
+  font-size: 40px;
+  width: 100%;
 }
 
 .container * {
+  padding: 10px;
+  width: 90%;
+  height: 90%;
   display: flex;
   flex-flow: row wrap;
   box-sizing: border-box;
