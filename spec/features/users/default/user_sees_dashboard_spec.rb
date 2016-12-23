@@ -22,6 +22,6 @@ RSpec.feature "User sees their dashboard" do
   scenario "they can see their rewards" do
     visit user_dashboard_path(@user)
     expect(page).to have_content "Rewards"
-    expect(page).to have_selector("body > ul > li", count: 10)
+    expect(page).to have_selector("body > div.container > ul > li", count: 10)
   end
 end

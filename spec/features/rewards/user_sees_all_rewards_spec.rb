@@ -16,7 +16,7 @@ RSpec.feature "User sees all rewards" do
 
     scenario "they can see a CRUD list of rewards" do
       visit admin_rewards_path
-      expect(page).to have_selector("body > ul > li", count: 10)
+      expect(page).to have_selector("body > div.container > ul > li", count: 10)
       within "li##{@reward.name.downcase.split(" ").join}" do
         expect(page).to have_link "Edit", href: edit_admin_reward_path(@reward)
         expect(page).to have_link "Delete", href: admin_reward_path(@reward)
@@ -34,7 +34,7 @@ RSpec.feature "User sees all rewards" do
 
     scenario "they can see a list of rewards" do
       visit rewards_path
-      expect(page).to have_selector("body > ul > li", count: 10)
+      expect(page).to have_selector("body > div.container > ul > li", count: 10)
       within "li##{@reward.name.downcase.split(" ").join}" do
         expect(page).to_not have_link "Edit", href: edit_admin_reward_path(@reward)
         expect(page).to_not have_link "Delete", href: admin_reward_path(@reward)
