@@ -12,6 +12,7 @@
       .nav-left
         %h1 Carrot Candy
       .nav-right
+        = link_to('Home', user_path(current_user))
         - if current_user
           = link_to 'Log out', logout_path, method: :delete
         - else

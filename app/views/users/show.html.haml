@@ -1,7 +1,14 @@
 %header
   Welcome, #{@user.first_name}!
 - if current_admin?
-  = link_to 'Add Reward', new_admin_reward_path
+  %ul.link-banner
+    %li
+      = link_to 'Add Reward', new_admin_reward_path, class: "link-button"
+    %li
+      = link_to('View Rewards', admin_rewards_path, class: "link-button")
+    %li
+      = link_to('View Users', admin_users_path, class: "link-button")
 - else
-  - @user.rewards.each do |reward|
-    = reward.name
+  .rewards-list
+    - @user.rewards.each do |reward|
+      = reward.name
