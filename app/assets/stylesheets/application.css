@@ -98,6 +98,10 @@ nav a:hover {
   padding: 10px;
 }
 
+.label {
+  white-space: nowrap;
+}
+
 .form-row {
   padding: 10px;
   text-align: right;

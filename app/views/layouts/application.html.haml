@@ -10,10 +10,11 @@
   %body
     %nav
       .nav-left
-        %h1 Carrot Candy
+        %h1 
+          = link_to "Carrot Candy", login_path
       .nav-right
-        = link_to('Home', user_path(current_user))
         - if current_user
+          = link_to('Home', user_path(current_user))
           = link_to 'Log out', logout_path, method: :delete
         - else
           = link_to 'Log in', login_path
