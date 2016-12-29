@@ -90,7 +90,8 @@ nav a:hover {
 }
 
 .log-in,
-.new-user {
+.new-user,
+.new-reward {
   background: rgba(193, 225, 237, .7);
   border-radius: 5px;
   flex-direction: column;
