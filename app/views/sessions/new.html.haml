@@ -1,10 +1,12 @@
 .log-in
   = form_tag login_path do
-    .form-row
+    .label
       = label_tag :email
-      = email_field_tag :email
     .form-row
+      = email_field_tag :email
+    .label
       = label_tag :password
+    .form-row
       = password_field_tag :password
     .form-button
       = submit_tag "Log in"
