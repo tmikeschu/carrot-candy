@@ -1,14 +1,24 @@
-= form_for [:admin, @user] do |f|
-  = f.label :first_name
-  = f.text_field :first_name
+.new-user
+  = form_for [:admin, @user] do |f|
+    .label
+      = f.label :first_name
+    .form-row
+      = f.text_field :first_name
 
-  = f.label :last_name
-  = f.text_field :last_name
+    .label
+      = f.label :last_name
+    .form-row
+      = f.text_field :last_name
 
-  = f.label :email
-  = f.text_field :email
+    .label
+      = f.label :email
+    .form-row
+      = f.text_field :email
 
-  = f.label :password
-  = f.text_field :password
+    .label
+      = f.label :password
+    .form-row
+      = f.text_field :password
 
-  = f.submit "Create Account"
+    .form-button
+      = f.submit "Create Account"

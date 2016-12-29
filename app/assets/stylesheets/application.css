@@ -89,7 +89,8 @@ nav a:hover {
   padding: 10px;
 }
 
-.log-in {
+.log-in,
+.new-user {
   background: rgba(193, 225, 237, .7);
   border-radius: 5px;
   flex-direction: column;
