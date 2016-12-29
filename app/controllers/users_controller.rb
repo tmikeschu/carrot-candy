@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     end
 
     def require_login
-      render file: 'public/404' unless current_user
+      redirect_to login_path unless current_user
     end
     
     def verify_user

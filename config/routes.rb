@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "sessions#new"
+  root to: "users#dashboard"
   
   resources :users, only: [:show] do
     get '/dashboard', to: "users#dashboard" 
