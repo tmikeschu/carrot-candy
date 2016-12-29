@@ -1,6 +1,7 @@
 .log-in
   = form_for [:admin, @reward] do |f|
-    = f.label :name
+    .label
+      = f.label :name
     .form-row
       = f.text_field :name
 
@@ -11,6 +12,10 @@
     = f.label :point_value
     .form-row
       = f.number_field :point_value
+
+    = f.label :image_url
+    .form-row
+      = f.text_field :image_url
 
     .form-button
       = f.submit submit_button_name(@reward)
