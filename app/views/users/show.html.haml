@@ -8,6 +8,8 @@
       = link_to('View Rewards', admin_rewards_path, class: "link-button")
     %li
       = link_to('View Users', admin_users_path, class: "link-button")
+    %li
+      = link_to('Add User', new_admin_user_path, class: "link-button")
 - else
   .rewards-list
     - @user.rewards.each do |reward|

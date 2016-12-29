@@ -133,7 +133,7 @@ nav a:hover {
 
 .link-banner {
   margin-top: 50px;
-  display: inline-flex;
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   list-style: none;
