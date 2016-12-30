@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem "haml-rails", "~> 0.9"
+gem 'faker'
+gem 'factory_girl_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,8 +42,6 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'nyan-cat-formatter'
-  gem 'faker'
-  gem 'factory_girl_rails'
 end
 
 group :development do
