@@ -109,6 +109,11 @@ nav a:hover {
 }
 
 .form-row input {
+  border-radius: 5px;
+  height: 20px;
+}
+
+.form-row input {
   width: 100%;
 }
 
@@ -162,8 +167,36 @@ nav a:hover {
 }
 
 .rewards-list {
-  width: 100%;
+  margin: 0 auto;
   margin-top: 50px;
+  justify-content: center;
+}
+
+.rewards-list>ul {
+  display: flex;
+  width: 600px;
+}
+
+.rewards-list>ul>li {
+  flex: 1;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  background: rgba(227, 92, 20, .2);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.rewards-list a {
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.rewards-list a:hover {
+  background: rgba(19, 25, 25, .4);
+  border-radius: 5px;
 }
 
 .table {
@@ -209,4 +242,60 @@ nav a:hover {
 
 .center {
   text-align: center;
+}
+
+.button-pair {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.button-pair a {
+  width: 50%;
+  font-size: 18px;
+}
+
+.rewards-list ul>li>ul>li,
+.reward-info>ul>li {
+  font-size: 24px;
+  text-align: center;
+  background: rgba(193, 225, 237, .7);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.rewards-list img {
+  border-radius: 5px;
+  size: 50%;
+}
+
+.reward-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px;
+  width: 40%;
+  background: rgba(227, 92, 20, .5);
+  border-radius: 5px;
+}
+
+.reward-info a,
+.button-pair a {
+  background: rgba(118, 199, 198, .9);
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 5px;
+  color: black;
+}
+
+.reward-info a:hover,
+.button-pair a:hover {
+  background: rgba(193, 225, 237, 1);
+}
+
+img {
+  margin: 4px auto;
+  border-radius: 5px;
+  width: 50%;
 }

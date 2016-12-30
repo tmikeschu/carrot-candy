@@ -1,11 +1,15 @@
-= @reward.name
-%ul
-  %li= @reward.quantity
-  %li= @reward.point_value
-- if current_admin?
-  = link_to 'Edit', edit_admin_reward_path(@reward)
-  = link_to 'Delete', admin_reward_path(@reward), method: :delete
-  = link_to 'Back to Rewards', admin_rewards_path
-- else
-  = link_to 'Buy', "/buy/#{@reward.id}"
-  = link_to 'Back to Rewards', rewards_path
+%header.center= @reward.name
+.reward-info
+  %ul
+    %li= "Quantity: #{@reward.quantity}"
+    %li= "Point value: #{@reward.point_value}"
+    %li
+      %img{src: @reward.image_url }
+
+  - if current_admin?
+    = link_to 'Edit', edit_admin_reward_path(@reward)
+    = link_to 'Delete', admin_reward_path(@reward), method: :delete
+    = link_to 'Back to Rewards', admin_rewards_path
+  - else
+    = link_to 'Buy', "/buy/#{@reward.id}"
+    = link_to 'Back to Rewards', rewards_path
