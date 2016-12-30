@@ -299,3 +299,42 @@ img {
   border-radius: 5px;
   width: 50%;
 }
+
+.users-list {
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.users-list>ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.users-list h2 {
+  font-size: 24px;
+}
+
+.users-list a {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.users-list a:hover {
+  font-weight: bold;
+  background: rgba(19, 25, 25, .4);
+  border-radius: 5px;
+  color: floralwhite;
+}
+
+.user-info {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  background: rgba(227, 92, 20, .5);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
