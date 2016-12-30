@@ -162,5 +162,51 @@ nav a:hover {
 }
 
 .rewards-list {
-  align-self: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.table {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgba(227, 92, 20, .8);
+  border-radius: 20px;
+  padding: 20px;
+  color: rgba(39, 61, 59, .8);
+  color: floralwhite;
+}
+
+.table table {
+  width: 100%;
+}
+
+.table h1 {
+  font-size: 30px;
+  width: 100%;
+}
+
+.table th {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.table tr {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.table tr td {
+  border: 2px floralwhite solid;
+  border-radius: 5px;
+  margin: 10px;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
 }

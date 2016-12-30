@@ -1,20 +1,22 @@
-%h1 Welcome, #{current_user.name}!
+%header Welcome, #{current_user.name}!
 
-%table
-  %thead 
-    Point Breakdown
-    %tr
-      %th Points Available
-      %th Redeemed Points
-      %th All Time Points
-  %tbody
-    %tr
-      %td #{current_user.points}
-      %td #{current_user.redeemed_points}
-      %td #{current_user.total_points}
+.table
+  %table
+    %h1 Point Breakdown
+    %thead 
+      %tr
+        %th Points Available
+        %th Redeemed Points
+        %th All Time Points
+    %tbody
+      %tr
+        %td #{current_user.points}
+        %td #{current_user.redeemed_points}
+        %td #{current_user.total_points}
 
-%ul
-  %h1 Rewards
-  - current_user.rewards.each do |reward|
-    %li
-    = link_to(reward.name, reward_path(reward))
+.rewards-list.center
+  %header Rewards
+  %ul
+    - current_user.rewards.each do |reward|
+      %li
+      = link_to(reward.name, reward_path(reward))
