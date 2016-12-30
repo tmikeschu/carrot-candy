@@ -17,7 +17,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def index
-    @users = User.where(role: "default")
+    @users = User.where(role: "default").order(:last_name)
   end
 
   def edit
