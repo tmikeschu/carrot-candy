@@ -1,5 +1,14 @@
-= form_for [:admin, @user] do |f|
-  = f.label :points
-  = f.number_field :points
+%header.center How many points to add or delete?
 
-  = f.submit "Update Points"
+.new-user
+  = form_for [:admin, @user] do |f|
+    .label
+      = f.label :points
+    .form-row
+      = f.number_field :points, value: nil
+
+    .label
+      Start the number with "-" to take away points 
+
+    .form-button
+      = f.submit "Update Points"
