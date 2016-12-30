@@ -42,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    redirect_to user_path(current_user) if current_admin?
   end
 
   private
