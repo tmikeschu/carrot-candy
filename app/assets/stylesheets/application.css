@@ -95,10 +95,21 @@ nav a:hover {
 .new-reward {
   background: rgba(193, 225, 237, .7);
   border-radius: 5px;
+  display: flex;
   flex-direction: column;
   width: 300px;
   margin: 10px auto;
   padding: 10px;
+}
+
+.login-note {
+  margin: 10px;
+  text-align: center;
+  background: rgba(227, 92, 20, .8);
+  border-radius: 5px;
+  padding: 5px;
+  color: floralwhite;
+  font-size: 13px;
 }
 
 .label {
@@ -175,7 +186,9 @@ nav a:hover {
 
 .rewards-list>ul {
   display: flex;
-  width: 600px;
+  width: 90%;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .rewards-list>ul>li {
