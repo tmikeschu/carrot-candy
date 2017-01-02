@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def add_reward
     @reward = Reward.find(params[:id])
     current_user.rewards << @reward
-    @reward.quantity - 1
+    @reward.quantity -= 1
     @reward.save
     current_user.points -= @reward.point_value
     current_user.save 
