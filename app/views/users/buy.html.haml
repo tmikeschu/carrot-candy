@@ -1,7 +1,8 @@
-%h2
-  Your point total: #{current_user.points}
-%h2
-  Cost of #{@reward.name}: #{@reward.point_value}
-%h2
-  Number of these left: #{@reward.quantity}
-= link_to 'Confirm Purchase', "/buy/#{@reward.id}", method: :post
+.container.center
+  %header
+    Your point total: #{current_user.points}
+  %header
+    Cost of #{@reward.name}: #{@reward.point_value}
+  %header
+    Number of these left: #{@reward.quantity}
+  = link_to 'Confirm Purchase', "/buy/#{@reward.id}", method: :post, class: "link-button"
