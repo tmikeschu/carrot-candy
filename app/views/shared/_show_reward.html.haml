@@ -12,4 +12,5 @@
     = link_to 'Back to Rewards', admin_rewards_path
   - else
     = link_to 'Buy', "/buy/#{@reward.id}"
-    = link_to 'Back to Rewards', rewards_path
+    = link_to 'Back to All Rewards', rewards_path
+    = link_to 'Back to My Rewards', user_dashboard_path(current_user)
