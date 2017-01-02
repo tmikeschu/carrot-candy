@@ -1,22 +1,25 @@
 %header Welcome, #{current_user.name}!
 
-.table
-  %table
-    %h1 Point Breakdown
-    %thead 
-      %tr
-        %th Points Available
-        %th Redeemed Points
-        %th All Time Points
-    %tbody
-      %tr
-        %td #{current_user.points}
-        %td #{current_user.redeemed_points}
-        %td #{current_user.total_points}
+.dashboard
+  .table
+    %table
+      %h1 Point Breakdown
+      %thead 
+        %tr
+          %th Points Available
+          %th Redeemed Points
+          %th All Time Points
+      %tbody
+        %tr
+          %td #{current_user.points}
+          %td #{current_user.redeemed_points}
+          %td #{current_user.total_points}
 
-.rewards-list.center
-  %header Rewards
-  %ul
+  %header.center Your Rewards
+
+  %ul.link-banner
     - current_user.rewards.each do |reward|
       %li
-      = link_to(reward.name, reward_path(reward))
+        = link_to(reward.name, reward_path(reward), class: "link-button")
+    %li
+      = link_to('(Shop for Rewards)', rewards_path, class: "link-button last")

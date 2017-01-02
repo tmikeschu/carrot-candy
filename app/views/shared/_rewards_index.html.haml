@@ -2,7 +2,7 @@
   %ul
     - alphabetize_rewards(@rewards).each do |reward|
       %li{:id => "#{downcase_join_name(reward.name)}"}
-        = link_to reward.name, admin_reward_path(reward)
+        = link_to reward.name, current_admin? ? admin_reward_path(reward) : reward_path(reward)
         %ul
           %li= "Quantity: #{reward.quantity}"
           %li= "Point value: #{reward.point_value}"

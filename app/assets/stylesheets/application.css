@@ -379,3 +379,29 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.dashboard {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.dashboard header {
+  margin-top: 20px;
+}
+
+.dashboard .last {
+  background: rgba(227, 92, 20, 1);
+}
+
+.dashboard .last:hover {
+  background: rgba(19, 25, 25, .8);
+}
+
+.dashboard .link-banner {
+  width: 70%;
+  margin: 10px auto;
+}
+
+.dashboard li {
+  margin: 20px;
+}
