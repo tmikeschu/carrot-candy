@@ -1,6 +1,6 @@
-require 'factory_girl_rails'
+require "factory_bot_rails"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence :first_name do
       Faker::Name.first_name
@@ -18,9 +18,9 @@ FactoryGirl.define do
       Faker::Internet.password(10, 50)
     end
 
-    points 0
+    points { 0 }
 
-    redeemed_points 0
+    redeemed_points { 0 }
 
     factory :user_with_rewards do
       after(:create) do |user|
@@ -35,11 +35,11 @@ FactoryGirl.define do
     end
 
     sequence :quantity do
-      rand(20) + 1
+      rand(1..20)
     end
 
     sequence :point_value do
-      rand(500) + 1
+      rand(1..500)
     end
 
     sequence :image_url do
